@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XV Años Scarlet Mishell</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+background-color: #0b0612;
+color: #f3e5ab;
+font-family: 'Montserrat', sans-serif;
+overflow-x: hidden;
+text-align: center;
+}
+#portada {
+position: fixed;
+top: 0; left: 0; width: 100%; height: 100vh;
+background: radial-gradient(circle at center, #2e1247 0%, #0b0612 100%);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+transition: opacity 1s ease, visibility 1s ease;
+padding: 20px;
+overflow: hidden;
+}
+#portada.oculto { opacity: 0; visibility: hidden; }
+
+/* Fondo Medio Oriente en Portada (Dunas y siluetas sutiles) */
+.fondo-medio-oriente {
+position: absolute;
+bottom: 0; left: 0; width: 100%; height: 220px;
+background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0,250 C300,150 600,280 900,180 C1050,130 1150,200 1200,220 L1200,300 L0,300 Z" fill="%231a0b2e" opacity="0.85"/><path d="M0,220 C250,100 550,250 850,140 C1020,80 1120,170 1200,190 L1200,300 L0,300 Z" fill="%23130720" opacity="0.95"/></svg>') no-repeat bottom center;
+background-size: cover;
+pointer-events: none;
+z-index: 1;
+opacity: 0.6;
+}
+
+/* Silueta de camellos en la portada */
+.silueta-camellos {
+position: absolute;
+bottom: 20px;
+right: 6%;
+width: 150px;
+height: 75px;
+background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" fill="%23ffd700" opacity="0.35"><path d="M20,70 Q25,50 30,55 Q35,40 45,45 Q50,30 60,40 Q65,60 70,70 Z M110,65 Q115,45 120,50 Q125,35 135,40 Q140,25 150,35 Q155,55 160,65 Z"/></svg>') no-repeat center;
+background-size: contain;
+pointer-events: none;
+z-index: 2;
+}
+
+/* Alfombra mágica volando de fondo */
+.alfombra-voladora {
+position: absolute;
+top: 15%;
+left: -120px;
+width: 110px;
+height: 50px;
+background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60"><ellipse cx="60" cy="30" rx="55" ry="22" fill="%23c0392b" stroke="%23f1c40f" stroke-width="3"/><path d="M 15 30 Q 60 10 105 30 Q 60 50 15 30" fill="none" stroke="%23f1c40f" stroke-width="2"/><line x1="10" y1="30" x2="3" y2="33" stroke="%23f1c40f" stroke-width="4"/><line x1="110" y1="30" x2="117" y2="33" stroke="%23f1c40f" stroke-width="4"/></svg>') no-repeat center;
+background-size: contain;
+pointer-events: none;
+z-index: 2;
+animation: volarAlfombra 14s linear infinite;
+opacity: 0.85;
+filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+
+@keyframes volarAlfombra {
+0% { transform: translateX(-150px) translateY(0px) rotate(-5deg); }
+50% { transform: translateX(calc(100vw + 150px)) translateY(-40px) rotate(8deg); }
+100% { transform: translateX(calc(100vw + 300px)) translateY(0px) rotate(-5deg); }
+}
+
+/* Estrellas intensas y destellos de oro */
+.estrella-portada {
+position: absolute;
+background: #fff;
+border-radius: 50%;
+box-shadow: 0 0 12px #ffd700, 0 0 25px #d4af37;
+animation: parpadeo 2s infinite ease-in-out;
+pointer-events: none;
+z-index: 2;
+}
+@keyframes parpadeo {
+0%, 100% { transform: scale(0.5); opacity: 0.3; }
+50% { transform: scale(1.5); opacity: 1; }
+}
+
+.contenido-portada {
+position: relative;
+z-index: 10;
+}
+
+h1.titulo-portada {
+font-family: 'Great Vibes', cursive;
+font-size: 3.8rem;
+color: #fce8b2;
+margin-bottom: 5px;
+text-shadow: 0 0 25px rgba(247, 225, 160, 0.9), 0 0 10px #ffd700;
+}
+p.sub-portada {
+font-family: 'Cinzel', serif;
+font-size: 1.1rem;
+letter-spacing: 4px;
+color: #e5d4a1;
+margin-bottom: 25px;
+text-shadow: 0 0 12px rgba(255,215,0,0.6);
+}
+
+.lampara-wrapper {
+position: relative;
+margin: 20px auto;
+cursor: pointer;
+}
+
+/* Lámpara de Aladdín detallada en SVG puro */
+.lampara-aladdin-container {
+width: 170px; height: 130px;
+margin: 0 auto;
+background: radial-gradient(circle, rgba(255,223,128,0.35) 0%, rgba(19,9,31,0.85) 70%);
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0 0 40px rgba(255, 215, 0, 0.7), inset 0 0 20px rgba(255, 215, 0, 0.5);
+animation: flotar 3s ease-in-out infinite, pulsoLuz 2s infinite alternate;
+}
+
+@keyframes flotar {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-12px); }
+}
+@keyframes pulsoLuz {
+0% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2); }
+100% { box-shadow: 0 0 55px rgba(255, 215, 0, 0.95), inset 0 0 25px rgba(255, 215, 0, 0.7); }
+}
+
+/* Humo mágico radiante en portada */
+.humo-magico {
+position: absolute;
+top: -50px;
+left: 50%;
+transform: translateX(-50%) scale(0);
+width: 100px;
+height: 150px;
+background: radial-gradient(circle, rgba(255,235,160,0.9) 0%, rgba(212,143,255,0.5) 50%, transparent 80%);
+border-radius: 50%;
+filter: blur(12px);
+opacity: 0;
+pointer-events: none;
+z-index: 20;
+}
+.humo-magico.activo {
+animation: salirHumo 1.2s ease-out forwards;
+}
+@keyframes salirHumo {
+0% { transform: translateX(-50%) translateY(0) scale(0.3); opacity: 0.9; }
+50% { transform: translateX(-50%) translateY(-70px) scale(1.4) rotate(20deg); opacity: 0.7; }
+100% { transform: translateX(-50%) translateY(-140px) scale(2.2) rotate(-20deg); opacity: 0; }
+}
+
+.btn-abrir {
+margin-top: 25px;
+background: linear-gradient(135deg, #ffd700, #ffea9f);
+color: #120822;
+border: none;
+padding: 15px 38px;
+font-family: 'Cinzel', serif;
+font-weight: 700;
+font-size: 1.05rem;
+border-radius: 30px;
+cursor: pointer;
+box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+transition: transform 0.2s;
+}
+.btn-abrir:hover { transform: scale(1.05); }
+
+#invitacion {
+display: none;
+opacity: 0;
+transition: opacity 1.5s ease;
+max-width: 480px;
+margin: 0 auto;
+position: relative;
+padding: 40px 20px;
+background: radial-gradient(circle at center, #1b0d2f 0%, #0b0612 100%);
+min-height: 100vh;
+overflow: hidden;
+}
+#invitacion.visible { display: block; opacity: 1; }
+
+/* Humo tenue flotante perpetuo por toda la invitación */
+.humo-tenue-invitacion {
+position: absolute;
+top: 0; left: 0; width: 100%; height: 100%;
+background: radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 70% 60%, rgba(186, 153, 232, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 50% 90%, rgba(255, 235, 160, 0.09) 0%, transparent 45%);
+filter: blur(35px);
+pointer-events: none;
+z-index: 2;
+animation: moverHumoTenue 10s ease-in-out infinite alternate;
+}
+
+@keyframes moverHumoTenue {
+0% { transform: scale(1) translateY(0px); opacity: 0.7; }
+100% { transform: scale(1.15) translateY(-25px); opacity: 1; }
+}
+
+/* Lluvia de escarcha / oro ultra abundante, brillante y resplandeciente */
+.brillo {
+position: fixed;
+background: #fff;
+border-radius: 50%;
+pointer-events: none;
+box-shadow: 0 0 12px #ffd700, 0 0 25px #fff, 0 0 5px #ffea9f;
+animation: caer linear infinite;
+z-index: 6;
+}
+@keyframes caer {
+0% { transform: translateY(-10vh) translateX(0) scale(1); opacity: 1; }
+50% { opacity: 0.95; transform: translateY(50vh) translateX(15px) scale(1.2); }
+100% { transform: translateY(110vh) translateX(40px) scale(0.4); opacity: 0; }
+}
+
+.contenido-interno { position: relative; z-index: 10; }
+.nombre-xv {
+font-family: 'Great Vibes', cursive;
+font-size: 4.2rem;
+color: #ffea9f;
+margin: 20px 0 10px;
+text-shadow: 0 0 30px rgba(255, 234, 159, 0.9), 0 0 12px #ffd700, 0 0 5px #fff;
+}
+.frase-magica {
+font-family: 'Cinzel', serif;
+font-size: 1.05rem;
+letter-spacing: 2px;
+color: #f0dfa8;
+margin-bottom: 25px;
+font-style: italic;
+text-shadow: 0 0 12px rgba(255,215,0,0.6);
+}
+
+/* Contenedores con alta legibilidad sobre el fondo humeante y brillante */
+.mensaje-especial {
+background: rgba(15, 8, 25, 0.82);
+border: 1px solid rgba(255, 215, 0, 0.6);
+border-radius: 15px;
+padding: 20px;
+margin-bottom: 25px;
+font-size: 0.95rem;
+color: #ffea9f;
+line-height: 1.6;
+font-style: italic;
+box-shadow: 0 0 25px rgba(255, 215, 0, 0.3), inset 0 0 12px rgba(255, 215, 0, 0.15);
+backdrop-filter: blur(10px);
+}
+
+.cuenta-regresiva {
+display: flex;
+justify-content: center;
+gap: 12px;
+margin: 15px 0 25px;
+}
+.caja-tiempo {
+background: rgba(15, 8, 25, 0.88);
+border: 1px solid #ffd700;
+border-radius: 12px;
+padding: 10px 10px;
+min-width: 68px;
+box-shadow: 0 0 22px rgba(255, 215, 0, 0.4);
+backdrop-filter: blur(8px);
+}
+.caja-tiempo span {
+display: block;
+font-family: 'Cinzel', serif;
+font-size: 1.4rem;
+font-weight: 700;
+color: #ffea9f;
+text-shadow: 0 0 12px rgba(255, 234, 159, 0.9), 0 0 4px #fff;
+}
+.caja-tiempo small {
+font-size: 0.7rem;
+color: #d1c29b;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.tarjeta-info {
+background: rgba(15, 8, 25, 0.82);
+border: 1px solid rgba(255, 215, 0, 0.55);
+border-radius: 15px;
+padding: 25px;
+margin-bottom: 25px;
+backdrop-filter: blur(12px);
+box-shadow: 0 10px 35px rgba(0,0,0,0.7), 0 0 22px rgba(255, 215, 0, 0.2);
+}
+.tarjeta-info h3 {
+font-family: 'Cinzel', serif;
+color: #ffea9f;
+font-size: 1.1rem;
+letter-spacing: 2px;
+margin-bottom: 10px;
+text-shadow: 0 0 12px rgba(255, 234, 159, 0.7), 0 0 4px #fff;
+}
+.tarjeta-info p {
+font-size: 0.95rem;
+color: #f3ebd8;
+line-height: 1.6;
+text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+.btn-accion {
+display: inline-block;
+margin-top: 15px;
+background: linear-gradient(135deg, #ffd700, #ffea9f);
+color: #120822;
+text-decoration: none;
+padding: 12px 25px;
+font-family: 'Cinzel', serif;
+font-weight: 700;
+font-size: 0.85rem;
+border-radius: 25px;
+box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+transition: transform 0.2s;
+}
+.btn-accion:hover { transform: scale(1.05); }
+
+.control-musica {
+position: fixed;
+top: 20px; right: 20px;
+background: rgba(15, 8, 25, 0.9);
+border: 1px solid #ffd700;
+color: #ffea9f;
+padding: 8px 15px;
+border-radius: 20px;
+font-size: 0.8rem;
+cursor: pointer;
+z-index: 100;
+display: flex;
+align-items: center;
+gap: 8px;
+box-shadow: 0 0 25px rgba(255,215,0,0.5);
+backdrop-filter: blur(5px);
+}
+</style>
+</head>
+<body>
+
+<div id="portada">
+    <div class="fondo-medio-oriente"></div>
+    <div class="silueta-camellos"></div>
+    <div class="alfombra-voladora"></div>
+
+    <div class="estrella-portada" style="top: 15%; left: 10%; width: 6px; height: 6px; animation-delay: 0s;"></div>
+    <div class="estrella-portada" style="top: 25%; right: 15%; width: 8px; height: 8px; animation-delay: 0.7s;"></div>
+    <div class="estrella-portada" style="top: 40%; left: 8%; width: 5px; height: 5px; animation-delay: 1.5s;"></div>
+    <div class="estrella-portada" style="top: 35%; right: 22%; width: 7px; height: 7px; animation-delay: 0.4s;"></div>
+
+    <div class="contenido-portada">
+        <h1 class="titulo-portada">Mis XV Años</h1>
+        <p class="sub-portada">SCARLET MISHELL</p>
+        
+        <div class="lampara-wrapper" onclick="abrirInvitacion()">
+            <div class="humo-magico" id="humoMagico"></div>
+            <div class="lampara-aladdin-container">
+                <svg width="110" height="70" viewBox="0 0 130 80" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 15 50 Q 10 35 30 30 L 85 30 Q 105 35 100 50 Q 95 65 60 65 Q 25 65 15 50 Z" fill="url(#gradLampara)" stroke="#ffe57f" stroke-width="2"/>
+                  <ellipse cx="60" cy="65" rx="22" ry="6" fill="url(#gradLampara)" stroke="#ffe57f" stroke-width="1.5"/>
+                  <path d="M 50 30 Q 55 18 60 15 Q 65 18 70 30 Z" fill="#ffd700" stroke="#ffe57f" stroke-width="1.5"/>
+                  <circle cx="60" cy="14" r="3.5" fill="#fff" stroke="#d4af37" stroke-width="1"/>
+                  <path d="M 85 35 C 105 35 122 30 125 25 C 122 38 105 45 85 45 Z" fill="url(#gradLampara)" stroke="#ffe57f" stroke-width="1.5"/>
+                  <path d="M 22 38 C 5 35 5 58 25 55" fill="none" stroke="#ffd700" stroke-width="4.5" stroke-linecap="round"/>
+                  <defs>
+                    <linearGradient id="gradLampara" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ffe57f"/>
+                      <stop offset="50%" stop-color="#ffd700"/>
+                      <stop offset="100%" stop-color="#b8860b"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+            </div>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #ffea9f; margin-top: 12px; font-style: italic; text-shadow: 0 0 10px rgba(255,234,159,0.7);">Frota la lámpara y pide un deseo</p>
+        <button class="btn-abrir" onclick="abrirInvitacion()">✨ Tocar para abrir ✨</button>
+    </div>
+</div>
+
+<div class="control-musica" id="btnAudio" onclick="toggleMusica()" style="display:none;">
+    <span>🧞 Noche Arábiga</span>
+    <span id="estadoAudio">▶</span>
+</div>
+
+<div id="invitacion">
+    <!-- Humo tenue animado que recorre toda la invitación -->
+    <div class="humo-tenue-invitacion"></div>
+
+    <div class="contenido-interno">
+        <p style="font-family: 'Cinzel', serif; letter-spacing: 4px; font-size: 0.9rem; color: #ffea9f; text-shadow: 0 0 10px rgba(255,215,0,0.7);">MIS XV AÑOS</p>
+        <h2 class="nombre-xv">Scarlet Mishell</h2>
+        <p class="frase-magica">"Un mundo ideal comienza aquí..."</p>
+
+        <div class="mensaje-especial">
+            "Hay momentos en la vida que son inolvidables, y compartirlos con las personas que amamos los hace mágicos. Gracias por ser parte de este sueño hecho realidad."
+        </div>
+
+        <div class="tarjeta-info">
+            <h3>FALTA MUY POCO</h3>
+            <div class="cuenta-regresiva">
+                <div class="caja-tiempo"><span id="dias">00</span><small>Días</small></div>
+                <div class="caja-tiempo"><span id="horas">00</span><small>Horas</small></div>
+                <div class="caja-tiempo"><span id="minutos">00</span><small>Min</small></div>
+                <div class="caja-tiempo"><span id="segundos">00</span><small>Seg</small></div>
+            </div>
+        </div>
+
+        <div class="tarjeta-info">
+            <h3>FECHA Y HORA</h3>
+            <p>Sábado 12 de diciembre<br><strong>8:00 PM</strong></p>
+        </div>
+
+        <div class="tarjeta-info">
+            <h3>LUGAR DE RECEPCIÓN</h3>
+            <p><strong>Salón de Eventos Medio Ejido</strong><br>Av. Enrique Arízaga Toral y Francisco Cisneros<br>Cuenca, Ecuador</p>
+            <a href="https://share.google/Ky4QAMwYNoE4yL1te" target="_blank" class="btn-accion">📍 Ver en Google Maps</a>
+        </div>
+
+        <div class="tarjeta-info">
+            <h3>CONFIRMACIÓN DE ASISTENCIA (RSVP)</h3>
+            <p>Esperamos contar con tu presencia en esta noche mágica.</p>
+            <a href="https://wa.me/593985113498?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Scarlet%20Mishell.%20✨" target="_blank" class="btn-accion" style="background: linear-gradient(135deg, #25D366, #128C7E); color: #fff;">💬 Confirmar por WhatsApp</a>
+        </div>
+    </div>
+</div>
+
+<script>
+let audioCtx;
+let isPlaying = false;
+let intervaloMelodia;
+
+function abrirInvitacion() {
+  const humo = document.getElementById('humoMagico');
+  humo.classList.add('activo');
+
+  setTimeout(() => {
+    document.getElementById('portada').classList.add('oculto');
+    document.getElementById('invitacion').classList.add('visible');
+    document.getElementById('btnAudio').style.display = 'flex';
+    iniciarMusicaArabe();
+    crearBrillantiinaExtrema();
+  }, 600);
+}
+
+// Cuenta regresiva hacia el 12 de diciembre de 2026 a las 20:00
+const fechaEvento = new Date("December 12, 2026 20:00:00").getTime();
+
+function actualizarContador() {
+  const ahora = new Date().getTime();
+  const diferencia = fechaEvento - ahora;
+
+  if (diferencia > 0) {
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    document.getElementById('dias').innerText = String(dias).padStart(2, '0');
+    document.getElementById('horas').innerText = String(horas).padStart(2, '0');
+    document.getElementById('minutos').innerText = String(minutos).padStart(2, '0');
+    document.getElementById('segundos').innerText = String(segundos).padStart(2, '0');
+  }
+}
+setInterval(actualizarContador, 1000);
+actualizarContador();
+
+function iniciarMusicaArabe() {
+try {
+audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+isPlaying = true;
+document.getElementById('estadoAudio').innerText = '❚❚';
+tocarSecuenciaArabe();
+} catch(e) {}
+}
+
+function tocarSecuenciaArabe() {
+if (!isPlaying) return;
+
+const notasArabes = [220.00, 233.08, 277.18, 293.66, 329.63, 349.23, 415.30, 440.00];
+let tiempoActual = audioCtx.currentTime;
+const secuencia = [0, 1, 2, 3, 4, 3, 2, 1, 0, 3, 5, 4];
+const duracionNota = 0.22;
+
+secuencia.forEach((idx, index) => {
+let nota = notasArabes[idx % notasArabes.length];
+let osc = audioCtx.createOscillator();
+let gain = audioCtx.createGain();
+
+osc.type = 'sawtooth';
+osc.frequency.setValueAtTime(nota, tiempoActual + (index * duracionNota));
+
+gain.gain.setValueAtTime(0.001, tiempoActual + (index * duracionNota));
+gain.gain.linearRampToValueAtTime(0.08, tiempoActual + (index * duracionNota) + 0.03);
+gain.gain.exponentialRampToValueAtTime(0.0001, tiempoActual + (index * duracionNota) + duracionNota);
+
+osc.connect(gain);
+gain.connect(audioCtx.destination);
+
+osc.start(tiempoActual + (index * duracionNota));
+osc.stop(tiempoActual + (index * duracionNota) + duracionNota);
+});
+
+intervaloMelodia = setTimeout(tocarSecuenciaArabe, secuencia.length * duracionNota * 1000 + 600);
+}
+
+function toggleMusica() {
+if (isPlaying) {
+isPlaying = false;
+clearTimeout(intervaloMelodia);
+if(audioCtx) audioCtx.suspend();
+document.getElementById('estadoAudio').innerText = '❚❚';
+} else {
+isPlaying = true;
+if(audioCtx) {
+audioCtx.resume();
+tocarSecuenciaArabe();
+} else {
+iniciarMusicaArabe();
+}
+document.getElementById('estadoAudio').innerText = '❚❚';
+}
+}
+
+function crearBrillantiinaExtrema() {
+for (let i = 0; i < 90; i++) {
+let brillo = document.createElement('div');
+brillo.classList.add('brillo');
+brillo.style.left = Math.random() * 100 + 'vw';
+brillo.style.top = Math.random() * -100 + 'vh';
+let tam = Math.random() * 9 + 4 + 'px';
+brillo.style.width = tam;
+brillo.style.height = tam;
+brillo.style.animationDuration = (Math.random() * 2.2 + 1.8) + 's';
+brillo.style.animationDelay = Math.random() * 5 + 's';
+document.body.appendChild(brillo);
+}
+}
+</script>
+</body>
+</html>
